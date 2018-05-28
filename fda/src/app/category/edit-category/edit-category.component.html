@@ -1,0 +1,19 @@
+<div class="container">
+  <h3 mat-dialog-title>EDIT CATEGORY</h3>
+  <form class="mat-dialog-content" (ngSubmit)="submit" #formControl="ngForm">
+    <div class="form">
+        <mat-form-field color="accent">
+          <input matInput placeholder="Code" [(ngModel)]="data.code" name="code" required>
+        </mat-form-field>
+    </div>
+    <div class="form">
+      <mat-form-field color="accent">
+        <input matInput placeholder="Description" [(ngModel)]="data.description" name="description" required>
+      </mat-form-field>
+    </div>
+    <div mat-dialog-actions>
+      <button mat-button [type]="submit" [disabled]="!formControl.valid" [mat-dialog-close]="1" (click)="stopEdit()">Save</button>
+      <button mat-button (click)="onNoClick()" tabindex="-1">Cancel</button>
+    </div>
+  </form>
+</div>

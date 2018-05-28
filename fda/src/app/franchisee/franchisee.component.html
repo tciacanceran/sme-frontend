@@ -1,0 +1,82 @@
+<mat-card>
+  <!--SEARCH-->
+	<div class="form">
+    <mat-form-field floatPlaceholder="never" color="accent">
+      <input matInput #filter placeholder="Search">
+    </mat-form-field>
+  </div>
+
+  <!--TABLE-->
+  <div class="container mat-elevation-z8">
+    <table mat-table #table [dataSource]="dataSource" matSort class="mat-cell">
+      <!--CODE-->
+      <ng-container matColumnDef="code">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Code</th>
+        <td mat-cell *matCellDef="let row"> {{row.code}}</td>
+      </ng-container>
+      <!--OWNER-->
+      <ng-container matColumnDef="owner">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Owner</th>
+        <td mat-cell *matCellDef="let row"> {{row.owner}}</td>
+      </ng-container>
+      <!--BRANCH CODE-->
+      <ng-container matColumnDef="branch_code">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Branch Code</th>
+        <td mat-cell *matCellDef="let row"> {{row.branch_code}}</td>
+      </ng-container>
+      <!--BRANCH NAME-->
+      <ng-container matColumnDef="branch_name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Branch Name</th>
+        <td mat-cell *matCellDef="let row"> {{row.branch_name}}</td>
+      </ng-container>
+      <!--ADDRESS-->
+      <ng-container matColumnDef="address">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Address</th>
+        <td mat-cell *matCellDef="let row"> {{row.address}}</td>
+      </ng-container>
+      <!--TIN-->
+  		<ng-container matColumnDef="tin">
+  			<th mat-header-cell *matHeaderCellDef mat-sort-header>Tin</th>
+  			<td mat-cell *matCellDef="let row"> {{row.tin}}</td>
+  		</ng-container>
+      <!-- ACTIONS -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>
+          <button mat-icon-button color="primary" (click)="addNew()">
+            <mat-icon>add</mat-icon>
+          </button>
+
+  				<button mat-icon-button (click)="refresh()">
+  			    <mat-icon>refresh</mat-icon>
+  			  </button>
+        </th>
+
+        <td mat-cell *matCellDef="let row; let i=index;">
+          <button mat-icon-button color="accent" (click)="startEdit(i,  row.code, row.owner, row.branch_code, row.branch_name, row.address, row.tin)">
+            <mat-icon aria-label="Edit">edit</mat-icon>
+          </button>
+
+          <button mat-icon-button color="accent" (click)="deleteItem(i,row.code, row.owner, row.branch_code, row.branch_name, row.address, row.tin)">
+            <mat-icon aria-label="Delete">delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+
+    <div class="no-results" [style.display]="dataSource.renderedData.length == 0 ? '' : 'none'">
+      NO RESULTS
+    </div>
+
+    <!--PAGE NAVIGATOR-->
+    <mat-paginator #paginator
+                   [length]="dataSource.filteredData.length"
+                   [pageIndex]="0"
+                   [pageSize]="10"
+                   [pageSizeOptions]="[5, 10, 25, 100]">
+    </mat-paginator>
+  </div>
+</mat-card>

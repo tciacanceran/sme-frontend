@@ -1,0 +1,24 @@
+<div class="container">
+  <h3 mat-dialog-title>DELETE FRANCHISEE</h3>
+  <div mat-dialog-content>
+    <!-- Id: {{data.id}} -->
+    <p></p>
+    Code: {{data.code}}
+    <p></p>
+    Owner: {{data.owner}}
+    <p></p>
+    Branch Code: {{data.branch_code}}
+    <p></p>
+    Branch Name: {{data.name}}
+    <p></p>
+    Address: {{data.address}}
+    <p></p>
+    Tin: {{data.tin}}
+    <p></p>
+  </div>
+
+  <div mat-dialog-actions>
+    <button mat-button [mat-dialog-close]="1" (click)="confirmDelete()">Delete</button>
+    <button mat-button (click)="onNoClick()" tabindex="-1">Cancel</button>
+  </div>
+</div>

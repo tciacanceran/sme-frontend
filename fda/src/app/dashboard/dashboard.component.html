@@ -1,0 +1,74 @@
+<div class="example-container" >
+  <mat-toolbar  class="example-toolbar" fullscreen>
+    <button mat-icon-button (click)="snav.toggle()" class="menu-icon"><mat-icon>menu</mat-icon></button>
+    <h1 class="example-app-name">Potato Corner</h1>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="example-sidenav-container" >
+    <mat-sidenav #snav [mode]="over">
+      <div class="navtop">
+        <mat-grid-list cols="2" rowHeight="150px">
+          <mat-grid-tile id="userIcon">
+            <i class="material-icons prefix md-60 md-light col-sm-4 ">
+              account_circle
+            </i>
+          </mat-grid-tile>
+            <mat-grid-list cols="1" rowHeight="12:1" id="grid">
+              <mat-grid-tile>
+                <h6 id="first"> Jane Smith </h6>
+              </mat-grid-tile>
+              <mat-grid-tile>
+                <h6 id="second"> Administrator </h6>
+              </mat-grid-tile>
+            </mat-grid-list>
+            <mat-grid-tile id="down">
+              <button mat-icon-button [matMenuTriggerFor]="menu">
+                <i class="material-icons prefix md-26 md-light">
+                  arrow_drop_down
+                </i>
+              </button>
+              <mat-menu #menu="matMenu" yPosition="below" xPosition="after">
+                <button mat-menu-item>Change Password</button>
+                <button mat-menu-item (click)="authService.logout()">Log out</button>
+              </mat-menu>
+            </mat-grid-tile>
+        </mat-grid-list>
+      </div>
+      
+      <div class="navdown">
+        <h3>NAVIGATION</h3>
+        <mat-nav-list>
+          <a mat-list-item [routerLink]="[{ outlets: {dashBoard: ['franchisee'] } }]">
+            <i class="material-icons prefix md-26 md-light">
+              store
+            </i>
+            Franchisee
+          </a>
+          <a mat-list-item [routerLink]="[{ outlets: {dashBoard: ['product'] } }]">
+              <i class="material-icons prefix md-26 md-light">
+                fastfood
+              </i>
+              Product
+          </a>
+          <a mat-list-item [routerLink]="[{ outlets: {dashBoard: ['category'] } }]">
+              <i class="material-icons prefix md-26 md-light">
+                restaurant_menu
+              </i>
+              Category
+          </a>
+          <a mat-list-item [routerLink]="[{ outlets: {dashBoard: ['size'] } }]">
+              <i class="material-icons prefix md-26 md-light">
+                adjust
+              </i>
+              Sizes
+          </a>
+        </mat-nav-list>
+      </div>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+       <router-outlet name="dashBoard"></router-outlet>
+
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

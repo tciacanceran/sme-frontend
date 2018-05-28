@@ -1,0 +1,28 @@
+
+  <form class="form">
+    <div class="container">
+      <div id="logo">
+          <img src="./assets/fries-logo.png">
+      </div>
+          <h1>SIGN IN</h1>
+
+<!-- <div *ngIf="isLoginError" class="red-text center error-message">
+    <i class="material-icons">error</i> Incorrect username or password
+</div> -->
+          <div>
+             <span><i class="material-icons prefix md-26 md-light">account_circle</i></span>
+             <input type="email" [(ngModel)]="userData.email" autocomplete="off" name="Email" placeholder="email" id="email" [ngModelOptions]="{standalone:true}" required>
+          </div>
+          <div>
+            <span><i class="material-icons prefix md-26 md-light">lock_open</i></span>
+            <input type="password" [(ngModel)]="userData.password" autocomplete="off" name="Password" placeholder="password" id="password" [ngModelOptions]="{standalone:true}" required>
+          </div>
+          <a href="#">Forgot password?</a>
+          <div id="next">
+
+              <button mat-icon-button >
+                <i type="submit" id="submit" (click)="login()" class="material-icons md-60">navigate_next</i>
+              </button>
+          </div>
+      </div>
+  </form>

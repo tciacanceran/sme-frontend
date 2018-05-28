@@ -1,0 +1,47 @@
+<div class="container">
+  <h3 mat-dialog-title>ADD NEW PRODUCT</h3>
+
+  <form class="mat-dialog-content" (ngSubmit)="submit" #formControl="ngForm">
+    
+    <div class="form">
+      <mat-form-field color="accent">
+        <input matInput placeholder="SKU" [(ngModel)]="data.sku" name="sku">
+      </mat-form-field>
+    </div>
+
+    <div class="form">
+      <mat-form-field color="accent">
+        <input matInput placeholder="Product Name" [(ngModel)]="data.product_name" name="product_name">
+      </mat-form-field>
+    </div>
+
+    <div class="form">
+      <mat-form-field color="accent">
+        <input matInput placeholder="Category" [(ngModel)]="data.category" name="category">
+      </mat-form-field>
+    </div>
+
+    <div class="form">
+      <mat-form-field color="accent">
+        <input matInput placeholder="Size" [(ngModel)]="data.size" name="size">
+      </mat-form-field>
+    </div>
+
+    <div class="form">
+      <mat-form-field color="accent">
+        <input matInput placeholder="Flavor" [(ngModel)]="data.flavor" name="flavor">
+      </mat-form-field>
+    </div>
+
+    <div class="form">
+      <mat-form-field color="accent">
+        <input matInput placeholder="Price" [(ngModel)]="data.price" name="price">
+      </mat-form-field>
+    </div>
+
+    <div mat-dialog-actions>
+      <button mat-button [type]="submit" [disabled]="!formControl.valid" [mat-dialog-close]="1" (click)="confirmAdd()">Save</button>
+      <button mat-button (click)="onNoClick()" tabindex="-1">Cancel</button>
+    </div>
+  </form>
+</div>

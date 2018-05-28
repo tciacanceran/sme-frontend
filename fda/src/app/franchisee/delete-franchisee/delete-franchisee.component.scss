@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.container > * {
+  width: 100%;
+}
+
+h3, .details{
+  font-family: Roboto;
+  font-style: normal;
+  line-height: normal;
+  font-weight: lighter;
+}

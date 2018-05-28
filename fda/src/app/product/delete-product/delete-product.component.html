@@ -1,0 +1,24 @@
+<div class="container">
+  <h3 mat-dialog-title>DELETE PRODUCT</h3>
+  <div mat-dialog-content>
+    <!-- Id: {{data.id}} -->
+    <p></p>
+    SKU: {{data.sku}}
+    <p></p>
+    Product Name: {{data.product_name}}
+    <p></p>
+    Category: {{data.category}}
+    <p></p>
+    Size: {{data.size}}
+    <p></p>
+    Flavor: {{data.flavor}}
+    <p></p>
+    Price: {{data.price}}
+    <p></p>
+  </div>
+
+  <div mat-dialog-actions>
+    <button mat-button [mat-dialog-close]="1" (click)="confirmDelete()">Delete</button>
+    <button mat-button (click)="onNoClick()" tabindex="-1">Cancel</button>
+  </div>
+</div>
